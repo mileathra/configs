@@ -15,3 +15,5 @@ vim.o.undofile = true
 vim.o.signcolumn = "yes"
 
 vim.o.swapfile = false
+
+vim.o.ignorecase = true

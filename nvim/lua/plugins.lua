@@ -13,13 +13,18 @@ end
 
 local plugins = {
 	{ name = "nvim_notify", enabled = true },
-	{ name = "autopairs", enabled = true },
+	{ name = "autopairs", enabled = false },
 	{ name = "telescope", enabled = true },
 	{ name = "nvim_cmp", enabled = true },
 	{ name = "lspconfig", enabled = true },
 	{ name = "conform", enabled = true },
 	{ name = "transparent_nvim", enabled = true },
-	{ name = "kanagawa", enabled = true },
+	{ name = "treesitter", enabled = true },
+	{ name = "nvim_dap", enabled = true },
+
+	-- colorschemes (enable only one)
+	{ name = "gruvbox", enabled = true },
+	{ name = "kanagawa", enabled = false },
 }
 
 local enabled = {}
