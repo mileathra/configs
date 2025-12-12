@@ -1,15 +1,16 @@
-# Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="gozilla"
 
 plugins=(
     git
-    zsh-autosuggestions
     web-search
-    zsh-syntax-highlighting
 )
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$PATH:$HOME/local/scripts"
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -18,9 +19,6 @@ ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=white,underline
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=white',underline
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
-
-# Bind accepting autosuggest to Ctrl-S
-bindkey '^s' autosuggest-accept
 
 # --- Env vars ---
 
@@ -69,15 +67,35 @@ export PATH
 
 # --- Aliases ---
 
+alias vim="nvim"
+alias ll="ls -l --color"
 alias el="eza --long --git --icons"
 alias et="eza --long --git --icons --tree"
 
 zd () {
-	cd $(find ~/ -type d 2>/dev/null | fzf)
+	cd $(find . -type d 2>/dev/null | fzf)
 }
 
 # --- Zsh-stuff ---
 
 source $ZSH/oh-my-zsh.sh
 
-PROMPT='%{$fg_bold[yellow]%}➜  %{$fg[yellow]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+# Prompt
+
+YB="%{$fg_bold[yellow]%}"
+Y="%{$fg[yellow]%}"
+CB="%{$fg_bold[cyan]%}"
+BB="%{$fg_bold[blue]%}"
+RESET="%{$reset_color%}"
+
+PROMPT_CHAR="➜"
+CWD="%c"
+GIT_INFO='$(git_prompt_info)'
+
+PROMPT="${YB}${PROMPT_CHAR}  ${Y}${CWD} ${CB}${GIT_INFO}${BB} % ${RESET}"
+
+# Vi mode
+bindkey -v
+
+# Bind accepting autosuggest to Ctrl-S
+bindkey '^s' autosuggest-accept
