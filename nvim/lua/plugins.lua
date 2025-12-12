@@ -21,6 +21,7 @@ local plugins = {
 	{ name = "transparent_nvim", enabled = true },
 	{ name = "treesitter", enabled = true },
 	{ name = "nvim_dap", enabled = true },
+	{ name = "diffview", enabled = true },
 
 	-- colorschemes (enable only one)
 	{ name = "gruvbox", enabled = true },

@@ -17,6 +17,7 @@ local lsps = {
 local installed_lsps = {
 	"rust_analyzer",
 	"pyright",
+	"ts_ls",
 }
 
 local formatters = {
