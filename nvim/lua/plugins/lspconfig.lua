@@ -2,6 +2,7 @@ local lsps = {
 	clangd = {
 		filetypes = { "c", "cpp" },
 	},
+	marksman = {},
 	gopls = {},
 	lua_ls = {
 		settings = {
@@ -12,6 +13,22 @@ local lsps = {
 			},
 		},
 	},
+	rust_analyzer = {
+		settings = {
+			["rust-analyzer"] = {
+				cargo = {
+					allFeatures = true,
+				},
+			},
+		},
+	},
+}
+
+local ensure_installed = {
+	"clangd",
+	"marksman",
+	"gopls",
+	"lua_ls",
 }
 
 local installed_lsps = {
@@ -92,7 +109,6 @@ local M = {
 			mason.setup()
 		end
 
-		local ensure_installed = vim.tbl_keys(lsps or {})
 		vim.list_extend(ensure_installed, formatters or {})
 
 		local ok, mason_tool_installer = pcall(require, "mason-tool-installer")

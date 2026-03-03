@@ -38,6 +38,12 @@ local M = {
 			return
 		end
 
+		local ok, layout_actions = pcall(require, "telescope.actions.layout")
+		if not ok then
+			vim.notify("[telescope.nvim] Failed to load telescope.actions.layout", vim.log.levels.WARN)
+			return
+		end
+
 		local ok, themes = pcall(require, "telescope.themes")
 		if not ok then
 			vim.notify("[telescope.nvim] Failed to load telescope.themes", vim.log.levels.WARN)
@@ -46,8 +52,13 @@ local M = {
 
 		telescope.setup({
 			defaults = {
+				layout_config = {
+					width = 0.98,
+					height = 0.98,
+				},
 				mappings = {
 					i = {
+						["<C-p>"] = layout_actions.toggle_preview,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 					},
