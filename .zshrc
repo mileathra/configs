@@ -23,6 +23,7 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
 # --- Env vars ---
 
 export PAGER=less
+export EDITOR=nvim
 
 # Increase history file size
 export HISTFILESIZE=50000
@@ -67,6 +68,7 @@ export PATH
 
 # --- Aliases ---
 
+alias k="kubectl"
 alias vim="nvim"
 alias ll="ls -l --color"
 alias el="eza --long --git --icons"
@@ -96,6 +98,7 @@ PROMPT="${YB}${PROMPT_CHAR}  ${Y}${CWD} ${CB}${GIT_INFO}${BB} % ${RESET}"
 
 # Vi mode
 bindkey -v
+bindkey '^?' backward-delete-char
 
 # Bind accepting autosuggest to Ctrl-S
 bindkey '^s' autosuggest-accept
