@@ -1,12 +1,9 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
-	lazy = false,
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "c", "lua", "rust" },
-			highlight = { enable = true },
-		})
-	end,
+    src = "https://github.com/nvim-treesitter/nvim-treesitter",
+    version = 'master',
+    setup = function()
+        require("nvim-treesitter").setup({
+            install_dir = vim.fn.stdpath('data') .. '/site'
+        })
+    end,
 }
