@@ -1,10 +1,11 @@
 local plugins = {
-    { name = "everforest",  enabled = true, description = "colorscheme" },
+    { name = "doom_themes", enabled = true, description = "colorscheme" },
     { name = "treesitter",  enabled = true, description = "syntax highlighting" },
     { name = "transparent", enabled = true, description = "makes the background transparent" },
     { name = "telescope",   enabled = true, description = "navigate between and within buffers" },
     { name = "nvim_cmp",    enabled = true, description = "completions" },
     { name = "conform",     enabled = true, description = "format-on-save" },
+    { name = "oil",         enabled = true, description = "file explorer" },
 }
 
 local enabled = {}

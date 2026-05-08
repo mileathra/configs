@@ -2,6 +2,8 @@ local lsps = {
     { name = "lua_ls",        enabled = true },
     { name = "rust_analyzer", enabled = true },
     { name = "gopls",         enabled = true },
+    { name = "ts_ls",         enabled = true },
+    { name = "clangd",        enabled = true },
 }
 
 for _, lsp in ipairs(lsps) do

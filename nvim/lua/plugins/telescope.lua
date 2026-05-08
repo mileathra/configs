@@ -12,8 +12,10 @@ return {
 
         telescope.setup({
             defaults = {
-                preview = {
-                    treesitter = true,
+                layout_strategy = "horizontal",
+                layout_config = {
+                    width = 0.9,
+                    preview_cutoff = 10,
                 },
                 mappings = {
                     i = {
@@ -31,7 +33,11 @@ return {
         local builtin = require("telescope.builtin")
 
         local map = vim.keymap.set
-        map("n", "<leader>ff", builtin.find_files)
+        map("n", "<leader>ff", function()
+            builtin.find_files({
+                previewer = true,
+            })
+        end)
         map("n", "<leader>sw", builtin.grep_string)
         map("n", "<leader>fs", builtin.live_grep)
         map("n", "<leader>sd", builtin.diagnostics)

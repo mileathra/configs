@@ -20,19 +20,10 @@ return {
                 markdown = { "prettier" },
                 yaml = { "prettierv2" },
                 javascript = { "prettier" },
+                typescript = { "prettier" },
                 python = { "black" },
                 css = { "prettier" },
-                c = { "clang-format" },
-                cpp = { "clang-format" },
                 templ = { "templ" },
-            },
-            formatters = {
-                ["clang-format"] = {
-                    prepend_args = { "-style={IndentWidth: 4, AllowShortFunctionsOnASingleLine: Empty}" },
-                },
-                ["prettier"] = {
-                    prepend_args = { "--tab-width", "4" },
-                },
             },
         })
     end

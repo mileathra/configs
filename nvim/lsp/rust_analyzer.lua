@@ -147,6 +147,9 @@ return {
     ---@type lspconfig.settings.rust_analyzer
     settings = {
         ['rust-analyzer'] = {
+            cargo = {
+                features = "all",
+            },
             lens = {
                 debug = { enable = true },
                 enable = true,
