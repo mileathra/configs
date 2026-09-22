@@ -4,6 +4,7 @@ local lsps = {
     { name = "gopls",         enabled = true },
     { name = "ts_ls",         enabled = true },
     { name = "clangd",        enabled = true },
+    { name = "basedpyright",  enabled = true },
 }
 
 for _, lsp in ipairs(lsps) do
